@@ -1,0 +1,42 @@
+= Pekko Cluster
+
+
+include::partial$include.adoc[]
+
+If you have a set of actor systems that cooperate to solve some business problem, then you likely want to manage these set of systems in a disciplined way. Pekko Cluster gives you the ability to organize these actor systems into a “meta-system” tied together by a membership protocol.
+
+Challenges the Cluster module solves include the following:
+
+* How to maintain a set of actor systems (a cluster) that can communicate with each other and consider each other as part of the cluster.
+* How to introduce a new system safely to the set of already existing members.
+* How to reliably detect systems that are temporarily unreachable.
+* How to remove failed hosts/systems (or scale down the system) so that all remaining members agree on the remaining subset of the cluster.
+* How to distribute computations among the current set of members.
+* How to designate members of the cluster to a certain role, in other words, to provide certain services and not others.
+
+== Sharding
+
+Sharding helps to solve the problem of distributing a set of actors among members of a Pekko cluster. Sharding is a pattern that mostly used together with Persistence to balance a large set of persistent entities (backed by actors) to members of a cluster and also migrate them to other nodes when members crash or leave.
+
+Challenges that Sharding solves include the following:
+
+* How to model and scale out a large set of xref:memory-image-pattern.adoc#sharded_entities[stateful entities] on a set of systems.
+* How to ensure that entities in the cluster are distributed properly so that load is properly balanced across the machines.
+* How to ensure migrating entities from a crashed system without losing the state.
+* How to ensure that an entity does not exist on multiple systems at the same time and hence keeps consistent.
+
+NOTE: The xref:microservices-tutorial:entity.adoc[Event Sourced Cart entity in the Microservices tutorial] illustrates how to use Pekko Cluster Sharding to manage the entities. It is also using Sharding for xref:microservices-tutorial:projection-query.adoc[distributing the Projections].
+
+== Split Brain Resolver
+
+When operating a Pekko cluster you must consider how to handle network partitions (a.k.a. split brain scenarios) and machine crashes (including JVM and hardware failures). This is crucial for correct behavior if you use Cluster Singleton or Cluster Sharding, especially together with xref:pekko-persistence.adoc[].
+
+== Learn more
+
+* The {akka-blog}/news/2020/06/01/akka-cluster-motivation[Stateful or Stateless Applications video {tab-icon}, window="tab"] is a good for understanding when to use Pekko Cluster, and when to not use it.
+
+* The {akka-blog}/news/2019/12/16/akka-cluster-sharding-intro-video[Introduction to Pekko Cluster Sharding video {tab-icon}, window="tab"] is a good starting point for learning Pekko Cluster Sharding.
+
+* The {akka-blog}/news/2020/06/08/akka-split-brain-resolver-video[Split Brain Resolver video {tab-icon}, window="tab"] is a good starting point for learning why it is important to use a correct downing provider and how the Split Brain Resolver works.
+
+* Learn more about Pekko Cluster in the {pekko}/typed/index-cluster.html[Pekko Cluster reference documentation {tab-icon}, window="tab"].

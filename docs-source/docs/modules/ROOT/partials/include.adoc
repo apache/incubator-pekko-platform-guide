@@ -6,13 +6,13 @@
 :minimum-platform-version-major-dot-minor: 3.11
 
 // link shortcuts for `{akka}/typed/index.html` notation
-:pekko:  https://pekko.apache.org/docs/pekko/current
-:pekko-http:  https://pekko.apache.org/docs/pekko-http/current
-:pekko-grpc:  https://pekko.apache.org/docs/pekko-grpc/current
-:pekko-management:  https://pekko.apache.org/docs/pekko-management/current
-:pekko-persistence-cassandra:  https://pekko.apache.org/docs/pekko-persistence-cassandra/current
-:pekko-projection:  https://pekko.apache.org/docs/pekko-projection/current
-:pekko-connectors:  https://pekko.apache.org/docs/pekko-connectors-kafka/current
+:pekko:  https://pekko.apache.org/docs/pekko/current/
+:pekko-http:  https://pekko.apache.org/docs/pekko-http/current/
+:pekko-grpc:  https://pekko.apache.org/docs/pekko-grpc/current/
+:pekko-management:  https://pekko.apache.org/docs/pekko-management/current/
+:pekko-persistence-cassandra:  https://pekko.apache.org/docs/pekko-persistence-cassandra/current/
+:pekko-projection:  https://pekko.apache.org/docs/pekko-projection/current/
+:pekko-connectors:  https://pekko.apache.org/docs/pekko-connectors-kafka/current/
 
 :lightbend-developer-docs: https://pekko.apache.org/
 :lightbend-com-account: https://www.lightbend.com/account

@@ -33,9 +33,9 @@ When operating a Pekko cluster you must consider how to handle network partition
 
 == Learn more
 
-* The {akka-blog}/news/2020/06/01/akka-cluster-motivation[Stateful or Stateless Applications video {tab-icon}, window="tab"] is a good for understanding when to use Pekko Cluster, and when to not use it.
+* The {akka-blog}/news/2020/06/01/akka-cluster-motivation[Stateful or Stateless Applications video {tab-icon}, window="tab"] is a good for understanding when to use Akka Cluster, and when to not use it.
 
-* The {akka-blog}/news/2019/12/16/akka-cluster-sharding-intro-video[Introduction to Pekko Cluster Sharding video {tab-icon}, window="tab"] is a good starting point for learning Pekko Cluster Sharding.
+* The {akka-blog}/news/2019/12/16/akka-cluster-sharding-intro-video[Introduction to Pekko Cluster Sharding video {tab-icon}, window="tab"] is a good starting point for learning Akka Cluster Sharding.
 
 * The {akka-blog}/news/2020/06/08/akka-split-brain-resolver-video[Split Brain Resolver video {tab-icon}, window="tab"] is a good starting point for learning why it is important to use a correct downing provider and how the Split Brain Resolver works.
 

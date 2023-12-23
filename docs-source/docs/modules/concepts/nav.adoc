@@ -1,11 +1,11 @@
-* Akka modules for Microservices
-** xref:akka-actor.adoc[]
-** xref:akka-stream.adoc[]
-** xref:akka-grpc.adoc[]
-** xref:akka-cluster.adoc[]
-** xref:akka-persistence.adoc[]
-** xref:akka-projections.adoc[]
-** xref:akka-management.adoc[]
+* Pekko modules for Microservices
+** xref:pekko-actor.adoc[]
+** xref:pekko-stream.adoc[]
+** xref:pekko-grpc.adoc[]
+** xref:pekko-cluster.adoc[]
+** xref:pekko-persistence.adoc[]
+** xref:pekko-projections.adoc[]
+** xref:pekko-management.adoc[]
 
 * xref:index.adoc[What is Reactive?]
 ** xref:reactive-disambiguation.adoc[]

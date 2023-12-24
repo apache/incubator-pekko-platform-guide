@@ -9,8 +9,8 @@
 2. Create Cassandra keyspace and tables:
 
     ```shell
-    # creates keyspace and all tables needed for Akka Persistence
-    # as well as the offset store table for Akka Projection
+    # creates keyspace and all tables needed for Pekko Persistence
+    # as well as the offset store table for Pekko Projection
     docker exec -i shopping-cart-service_cassandra_1 cqlsh -t < ddl-scripts/create_tables.cql
     ```
 

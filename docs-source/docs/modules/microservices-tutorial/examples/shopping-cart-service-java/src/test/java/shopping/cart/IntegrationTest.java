@@ -4,17 +4,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import akka.actor.CoordinatedShutdown;
-import akka.actor.testkit.typed.javadsl.ActorTestKit;
-import akka.actor.testkit.typed.javadsl.TestProbe;
-import akka.actor.typed.ActorSystem;
-import akka.cluster.MemberStatus;
-import akka.cluster.typed.Cluster;
-import akka.grpc.GrpcClientSettings;
-import akka.kafka.ConsumerSettings;
-import akka.kafka.Subscriptions;
-import akka.kafka.javadsl.Consumer;
-import akka.testkit.SocketUtil;
 import com.google.protobuf.Any;
 import com.google.protobuf.CodedInputStream;
 import com.typesafe.config.Config;
@@ -29,6 +18,17 @@ import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.pekko.actor.CoordinatedShutdown;
+import org.apache.pekko.actor.testkit.typed.javadsl.ActorTestKit;
+import org.apache.pekko.actor.testkit.typed.javadsl.TestProbe;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.cluster.MemberStatus;
+import org.apache.pekko.cluster.typed.Cluster;
+import org.apache.pekko.grpc.GrpcClientSettings;
+import org.apache.pekko.kafka.ConsumerSettings;
+import org.apache.pekko.kafka.Subscriptions;
+import org.apache.pekko.kafka.javadsl.Consumer;
+import org.apache.pekko.testkit.SocketUtil;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -57,10 +57,10 @@ public class IntegrationTest {
         "shopping-cart-service.grpc.port = "
             + grcpPort
             + "\n"
-            + "akka.management.http.port = "
+            + "pekko.management.http.port = "
             + managementPorts.get(managementPortIndex)
             + "\n"
-            + "akka.discovery.config.services.shopping-cart-service.endpoints = [\n"
+            + "pekko.discovery.config.services.shopping-cart-service.endpoints = [\n"
             + "  { host = \"127.0.0.1\", port = "
             + managementPorts.get(0)
             + "},\n"

@@ -1,16 +1,19 @@
 // tag::projection[]
 package shopping.cart
 
-import akka.actor.typed.ActorSystem
-import akka.cluster.sharding.typed.ShardedDaemonProcessSettings
-import akka.cluster.sharding.typed.scaladsl.ShardedDaemonProcess
-import akka.persistence.jdbc.query.scaladsl.JdbcReadJournal
-import akka.persistence.query.Offset
-import akka.projection.eventsourced.EventEnvelope
-import akka.projection.eventsourced.scaladsl.EventSourcedProvider
-import akka.projection.jdbc.scaladsl.JdbcProjection
-import akka.projection.scaladsl.{ ExactlyOnceProjection, SourceProvider }
-import akka.projection.{ ProjectionBehavior, ProjectionId }
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.cluster.sharding.typed.ShardedDaemonProcessSettings
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ShardedDaemonProcess
+import org.apache.pekko.persistence.jdbc.query.scaladsl.JdbcReadJournal
+import org.apache.pekko.persistence.query.Offset
+import org.apache.pekko.projection.eventsourced.EventEnvelope
+import org.apache.pekko.projection.eventsourced.scaladsl.EventSourcedProvider
+import org.apache.pekko.projection.jdbc.scaladsl.JdbcProjection
+import org.apache.pekko.projection.scaladsl.{
+  ExactlyOnceProjection,
+  SourceProvider
+}
+import org.apache.pekko.projection.{ ProjectionBehavior, ProjectionId }
 import shopping.cart.repository.{ ItemPopularityRepository, ScalikeJdbcSession }
 
 object ItemPopularityProjection {

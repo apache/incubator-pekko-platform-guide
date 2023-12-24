@@ -5,14 +5,14 @@ import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.control.NonFatal
-import akka.Done
-import akka.actor.typed.ActorSystem
-import akka.kafka.CommitterSettings
-import akka.kafka.ConsumerSettings
-import akka.kafka.Subscriptions
-import akka.kafka.scaladsl.{ Committer, Consumer }
-import akka.stream.RestartSettings
-import akka.stream.scaladsl.RestartSource
+import org.apache.pekko.Done
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.kafka.CommitterSettings
+import org.apache.pekko.kafka.ConsumerSettings
+import org.apache.pekko.kafka.Subscriptions
+import org.apache.pekko.kafka.scaladsl.{ Committer, Consumer }
+import org.apache.pekko.stream.RestartSettings
+import org.apache.pekko.stream.scaladsl.RestartSource
 import com.google.protobuf.any.{ Any => ScalaPBAny }
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.ByteArrayDeserializer

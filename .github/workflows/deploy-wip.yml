@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
 
-      - name: Downloads, Antora, SCP to Gustav
-        run: |
-          ./scripts/prepare-downloads.sh
-          ./scripts/deploy-site.sh
-        env:
-          SCP_SECRET: ${{ secrets.GUSTAV_SCP_SECRET }}
+      #- name: Downloads, Antora, SCP to Gustav
+      #  run: |
+      #    ./scripts/prepare-downloads.sh
+      #    ./scripts/deploy-site.sh
+      #  env:
+      #    SCP_SECRET: ${{ secrets.GUSTAV_SCP_SECRET }}

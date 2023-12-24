@@ -4,12 +4,12 @@ import scala.concurrent.Await
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-import akka.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
-import akka.cluster.MemberStatus
-import akka.cluster.sharding.typed.scaladsl.ClusterSharding
-import akka.cluster.typed.Cluster
-import akka.cluster.typed.Join
-import akka.persistence.testkit.scaladsl.PersistenceInit
+import org.apache.pekko.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
+import org.apache.pekko.cluster.MemberStatus
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ClusterSharding
+import org.apache.pekko.cluster.typed.Cluster
+import org.apache.pekko.cluster.typed.Join
+import org.apache.pekko.persistence.testkit.scaladsl.PersistenceInit
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import org.scalatest.OptionValues

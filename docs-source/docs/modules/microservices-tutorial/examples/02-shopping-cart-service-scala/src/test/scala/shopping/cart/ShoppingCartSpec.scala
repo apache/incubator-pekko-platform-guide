@@ -1,8 +1,8 @@
 package shopping.cart
 
-import akka.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
-import akka.pattern.StatusReply
-import akka.persistence.testkit.scaladsl.EventSourcedBehaviorTestKit
+import org.apache.pekko.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
+import org.apache.pekko.pattern.StatusReply
+import org.apache.pekko.persistence.testkit.scaladsl.EventSourcedBehaviorTestKit
 import com.typesafe.config.ConfigFactory
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.wordspec.AnyWordSpecLike
@@ -10,7 +10,7 @@ import org.scalatest.wordspec.AnyWordSpecLike
 object ShoppingCartSpec {
   val config = ConfigFactory
     .parseString("""
-      akka.actor.serialization-bindings {
+      pekko.actor.serialization-bindings {
         "shopping.cart.CborSerializable" = jackson-cbor
       }
       """)

@@ -1,13 +1,13 @@
 package shopping.cart;
 
-import akka.actor.typed.ActorSystem;
-import akka.actor.typed.javadsl.Behaviors;
-import akka.grpc.GrpcClientSettings;
-import akka.management.cluster.bootstrap.ClusterBootstrap;
-import akka.management.javadsl.AkkaManagement;
-import akka.stream.alpakka.cassandra.javadsl.CassandraSession;
-import akka.stream.alpakka.cassandra.javadsl.CassandraSessionRegistry;
 import com.typesafe.config.Config;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.actor.typed.javadsl.Behaviors;
+import org.apache.pekko.grpc.GrpcClientSettings;
+import org.apache.pekko.management.cluster.bootstrap.ClusterBootstrap;
+import org.apache.pekko.management.javadsl.PekkoManagement;
+import org.apache.pekko.stream.connectors.cassandra.javadsl.CassandraSession;
+import org.apache.pekko.stream.connectors.cassandra.javadsl.CassandraSessionRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import shopping.cart.proto.ShoppingCartService;
@@ -29,18 +29,18 @@ public class Main {
   }
 
   public static void init(ActorSystem<Void> system, ShoppingOrderService orderService) {
-    AkkaManagement.get(system).start();
+    PekkoManagement.get(system).start();
     ClusterBootstrap.get(system).start();
 
     ShoppingCart.init(system);
 
     // tag::ItemPopularityProjection[]
     CassandraSession session =
-        CassandraSessionRegistry.get(system).sessionFor("akka.persistence.cassandra"); // <1>
+        CassandraSessionRegistry.get(system).sessionFor("pekko.persistence.cassandra"); // <1>
     // use same keyspace for the item_popularity table as the offset store
     Config config = system.settings().config();
     String itemPopularityKeyspace =
-        config.getString("akka.projection.cassandra.offset-store.keyspace");
+        config.getString("pekko.projection.cassandra.offset-store.keyspace");
     ItemPopularityRepository itemPopularityRepository =
         new ItemPopularityRepositoryImpl(session, itemPopularityKeyspace); // <2>
 

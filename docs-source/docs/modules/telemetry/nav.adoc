@@ -1,4 +1,0 @@
-* xref:index.adoc[Lightbend Telemetry]
-** xref:getting-started.adoc[Getting started with Telemetry]
-** xref:prometheus-backend.adoc[Using Telemetry with Prometheus]
-** xref:aws-xray-support.adoc[AWS X-Ray tracing support]

@@ -1,11 +1,11 @@
 package shopping.cart.repository;
 
-import akka.japi.function.Function;
-import akka.projection.jdbc.JdbcSession;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Objects;
 import javax.persistence.EntityManager;
+import org.apache.pekko.japi.function.Function;
+import org.apache.pekko.projection.jdbc.JdbcSession;
 import org.hibernate.Session;
 import org.hibernate.jdbc.ReturningWork;
 import org.springframework.orm.jpa.EntityManagerFactoryUtils;
@@ -14,7 +14,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 /**
- * Hibernate based implementation of Akka Projection JdbcSession. This class is required when
+ * Hibernate based implementation of Pekko Projection JdbcSession. This class is required when
  * building a JdbcProjection. It provides the means for the projeciton to start a transaction
  * whenever a new event envelope is to be delivered to the user defined projection handler.
  *

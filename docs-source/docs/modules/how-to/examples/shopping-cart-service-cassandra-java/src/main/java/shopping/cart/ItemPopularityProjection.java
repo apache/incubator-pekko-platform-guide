@@ -1,19 +1,19 @@
 // tag::projection[]
 package shopping.cart;
 
-import akka.actor.typed.ActorSystem;
-import akka.cluster.sharding.typed.ShardedDaemonProcessSettings;
-import akka.cluster.sharding.typed.javadsl.ShardedDaemonProcess;
-import akka.persistence.cassandra.query.javadsl.CassandraReadJournal;
-import akka.persistence.query.Offset;
-import akka.projection.ProjectionBehavior;
-import akka.projection.ProjectionId;
-import akka.projection.cassandra.javadsl.CassandraProjection;
-import akka.projection.eventsourced.EventEnvelope;
-import akka.projection.eventsourced.javadsl.EventSourcedProvider;
-import akka.projection.javadsl.AtLeastOnceProjection;
-import akka.projection.javadsl.SourceProvider;
 import java.util.Optional;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.cluster.sharding.typed.ShardedDaemonProcessSettings;
+import org.apache.pekko.cluster.sharding.typed.javadsl.ShardedDaemonProcess;
+import org.apache.pekko.persistence.cassandra.query.javadsl.CassandraReadJournal;
+import org.apache.pekko.persistence.query.Offset;
+import org.apache.pekko.projection.ProjectionBehavior;
+import org.apache.pekko.projection.ProjectionId;
+import org.apache.pekko.projection.cassandra.javadsl.CassandraProjection;
+import org.apache.pekko.projection.eventsourced.EventEnvelope;
+import org.apache.pekko.projection.eventsourced.javadsl.EventSourcedProvider;
+import org.apache.pekko.projection.javadsl.AtLeastOnceProjection;
+import org.apache.pekko.projection.javadsl.SourceProvider;
 
 public final class ItemPopularityProjection {
 

@@ -2,13 +2,12 @@ package shopping.cart
 
 import java.time.Instant
 
-import akka.actor.typed.ActorSystem
-import akka.actor.typed.Behavior
-import akka.cluster.sharding.typed.ShardingEnvelope
-import akka.cluster.sharding.typed.scaladsl.ClusterSharding
-import akka.cluster.sharding.typed.scaladsl.Entity
-import akka.cluster.sharding.typed.scaladsl.EntityContext
-import akka.cluster.sharding.typed.scaladsl.EntityTypeKey
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.actor.typed.Behavior
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ClusterSharding
+import org.apache.pekko.cluster.sharding.typed.scaladsl.Entity
+import org.apache.pekko.cluster.sharding.typed.scaladsl.EntityContext
+import org.apache.pekko.cluster.sharding.typed.scaladsl.EntityTypeKey
 
 object ShoppingCart {
 

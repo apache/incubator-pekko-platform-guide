@@ -20,7 +20,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/** Configure the necessary components required for integration with Akka Projections */
+/** Configure the necessary components required for integration with Pekko Projections */
 @Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
@@ -33,9 +33,10 @@ public class SpringConfig {
   }
 
   /**
-   * Configures a {@link JpaTransactionManager} to be used by Akka Projections. The transaction
+   * Configures a {@link JpaTransactionManager} to be used by Pekko Projections. The transaction
    * manager should be used to construct a {@link shopping.cart.repository.HibernateJdbcSession}
-   * that is then used to configure the {@link akka.projection.jdbc.javadsl.JdbcProjection}.
+   * that is then used to configure the {@link
+   * org.apache.pekko.projection.jdbc.javadsl.JdbcProjection}.
    */
   @Bean
   public PlatformTransactionManager transactionManager() {

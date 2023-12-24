@@ -88,8 +88,8 @@ When using the xref:deployment:index.adoc[Akka Operator] you should define the r
 .kubernetes/shopping-cart-service-cr.yml
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
 spec:
@@ -179,8 +179,8 @@ When using the xref:deployment:index.adoc[Akka Operator] you should define the r
 .kubernetes/shopping-cart-service-cr.yml
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
 spec:

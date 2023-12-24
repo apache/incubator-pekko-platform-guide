@@ -2,17 +2,17 @@ package shopping.cart
 
 import java.util.concurrent.TimeoutException
 import scala.concurrent.{ ExecutionContext, Future }
-import akka.actor.typed.{ ActorSystem, DispatcherSelector }
-import akka.cluster.sharding.typed.scaladsl.ClusterSharding
-import akka.grpc.GrpcServiceException
-import akka.util.Timeout
+import org.apache.pekko.actor.typed.{ ActorSystem, DispatcherSelector }
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ClusterSharding
+import org.apache.pekko.grpc.GrpcServiceException
+import org.apache.pekko.util.Timeout
 import io.grpc.Status
 import org.slf4j.LoggerFactory
 import shopping.cart.repository.{ ItemPopularityRepository, ScalikeJdbcSession }
 
 // tag::moreOperations[]
-import akka.actor.typed.ActorRef
-import akka.pattern.StatusReply
+import org.apache.pekko.actor.typed.ActorRef
+import org.apache.pekko.pattern.StatusReply
 
 // end::moreOperations[]
 
@@ -37,7 +37,7 @@ class ShoppingCartServiceImpl(
   private val blockingJdbcExecutor: ExecutionContext =
     system.dispatchers.lookup(
       DispatcherSelector
-        .fromConfig("akka.projection.jdbc.blocking-jdbc-dispatcher")
+        .fromConfig("pekko.projection.jdbc.blocking-jdbc-dispatcher")
     ) // <2>
 
   // end::getItemPopularity[]

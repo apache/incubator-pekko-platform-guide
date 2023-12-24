@@ -5,7 +5,6 @@ nav:
 - modules/ROOT/nav.adoc
 - modules/microservices-tutorial/nav.adoc
 - modules/deployment/nav.adoc
-- modules/telemetry/nav.adoc
 - modules/how-to/nav.adoc
 - modules/concepts/nav.adoc
 asciidoc:

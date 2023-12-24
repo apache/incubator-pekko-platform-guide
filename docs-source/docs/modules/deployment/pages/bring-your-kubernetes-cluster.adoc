@@ -42,21 +42,21 @@ helm upgrade -i akka-operator akka-operator-helm/akka-operator \
 ----
 <1> `{akka-cloud-platform-version}` is the latest available version.
 
-The cluster is now ready for you to xref:deploy.adoc[deploy] `AkkaMicroservice` services.
+The cluster is now ready for you to xref:deploy.adoc[deploy] `PekkoMicroservice` services.
 
 == Known limitations
 
 Deploying the Akka Cloud Platform operator xref:gcp-install.adoc[with Google Cloud Platform (GCP)] or xref:aws-index.adoc[with Amazon Web Services (AWS)] enables integration with databases, message brokers, and ingress specific to GCP or AWS.
 
-When you install the Akka Cloud Platform operator on a custom Kubernetes cluster, it will not be in charge of creating the `Ingress` instances required to handle external traffic into your `AkkaMicroservice`. This is unlike the deployment on xref:aws-ingress.adoc[AWS] or xref:gcp-ingress.adoc[GCP], where the operator can fine-tune all the necessary resources. The `Ingress` resources require cloud-specific tuning. You will need to refer to your Kubernetes provider (such as minikube docs, Azure docs) to create an Ingress that can handle TLS-enabled, HTTP/2 traffic to serve gRPC externally.
+When you install the Akka Cloud Platform operator on a custom Kubernetes cluster, it will not be in charge of creating the `Ingress` instances required to handle external traffic into your `PekkoMicroservice`. This is unlike the deployment on xref:aws-ingress.adoc[AWS] or xref:gcp-ingress.adoc[GCP], where the operator can fine-tune all the necessary resources. The `Ingress` resources require cloud-specific tuning. You will need to refer to your Kubernetes provider (such as minikube docs, Azure docs) to create an Ingress that can handle TLS-enabled, HTTP/2 traffic to serve gRPC externally.
 
-As a consequence, when deploying on custom-managed Kubernetes clusters you can't use the `grpcIngress` and `httpIngress` properties of the `AkkaMicroservice` Spec:
+As a consequence, when deploying on custom-managed Kubernetes clusters you can't use the `grpcIngress` and `httpIngress` properties of the `PekkoMicroservice` Spec:
 
 .kubernetes/shopping-cart-service-cr.yml
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
 spec:

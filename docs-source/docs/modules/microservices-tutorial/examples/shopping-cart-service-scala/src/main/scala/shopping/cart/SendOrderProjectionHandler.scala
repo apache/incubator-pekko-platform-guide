@@ -3,12 +3,12 @@ package shopping.cart
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 
-import akka.Done
-import akka.actor.typed.ActorSystem
-import akka.cluster.sharding.typed.scaladsl.ClusterSharding
-import akka.projection.eventsourced.EventEnvelope
-import akka.projection.scaladsl.Handler
-import akka.util.Timeout
+import org.apache.pekko.Done
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ClusterSharding
+import org.apache.pekko.projection.eventsourced.EventEnvelope
+import org.apache.pekko.projection.scaladsl.Handler
+import org.apache.pekko.util.Timeout
 import org.slf4j.LoggerFactory
 import shopping.order.proto.Item
 import shopping.order.proto.OrderRequest

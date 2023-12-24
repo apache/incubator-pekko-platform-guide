@@ -1,13 +1,13 @@
 package shopping.cart;
 
-import akka.actor.typed.ActorSystem;
-import akka.actor.typed.javadsl.Behaviors;
-// tag::SendOrderProjection[]
-import akka.grpc.GrpcClientSettings;
-// end::SendOrderProjection[]
-import akka.management.cluster.bootstrap.ClusterBootstrap;
-import akka.management.javadsl.AkkaManagement;
 import com.typesafe.config.Config;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.actor.typed.javadsl.Behaviors;
+// tag::SendOrderProjection[]
+import org.apache.pekko.grpc.GrpcClientSettings;
+// end::SendOrderProjection[]
+import org.apache.pekko.management.cluster.bootstrap.ClusterBootstrap;
+import org.apache.pekko.management.javadsl.PekkoManagement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -37,7 +37,7 @@ public class Main {
 
   public static void init(ActorSystem<Void> system, ShoppingOrderService orderService) {
     // end::SendOrderProjection[]
-    AkkaManagement.get(system).start();
+    PekkoManagement.get(system).start();
     ClusterBootstrap.get(system).start();
 
     ShoppingCart.init(system);

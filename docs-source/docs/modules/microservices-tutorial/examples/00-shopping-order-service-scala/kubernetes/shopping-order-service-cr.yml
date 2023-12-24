@@ -3,8 +3,8 @@ kind: "Namespace"
 metadata:
   name: "shopping"
 ---
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-order-service
   namespace: "shopping"

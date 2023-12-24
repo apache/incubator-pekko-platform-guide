@@ -1,16 +1,16 @@
 package shopping.cart
 
-import akka.actor.typed.scaladsl.Behaviors
-import akka.actor.typed.ActorSystem
-import akka.management.cluster.bootstrap.ClusterBootstrap
-import akka.management.scaladsl.AkkaManagement
+import org.apache.pekko.actor.typed.scaladsl.Behaviors
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.management.cluster.bootstrap.ClusterBootstrap
+import org.apache.pekko.management.scaladsl.PekkoManagement
 import org.slf4j.LoggerFactory
 import scala.util.control.NonFatal
 
 import shopping.order.proto.{ ShoppingOrderService, ShoppingOrderServiceClient }
-import akka.grpc.GrpcClientSettings
+import org.apache.pekko.grpc.GrpcClientSettings
 // tag::ItemPopularityProjection[]
-import akka.stream.alpakka.cassandra.scaladsl.CassandraSessionRegistry
+import org.apache.pekko.stream.connectors.cassandra.scaladsl.CassandraSessionRegistry
 
 // end::ItemPopularityProjection[]
 
@@ -32,19 +32,19 @@ object Main {
   }
 
   def init(system: ActorSystem[_], orderService: ShoppingOrderService): Unit = {
-    AkkaManagement(system).start()
+    PekkoManagement(system).start()
     ClusterBootstrap(system).start()
 
     ShoppingCart.init(system)
 
     // tag::ItemPopularityProjection[]
     val session = CassandraSessionRegistry(system).sessionFor(
-      "akka.persistence.cassandra"
+      "pekko.persistence.cassandra"
     ) // <1>
     // use same keyspace for the item_popularity table as the offset store
     val itemPopularityKeyspace =
       system.settings.config
-        .getString("akka.projection.cassandra.offset-store.keyspace")
+        .getString("pekko.projection.cassandra.offset-store.keyspace")
     val itemPopularityRepository =
       new ItemPopularityRepositoryImpl(session, itemPopularityKeyspace)(
         system.executionContext

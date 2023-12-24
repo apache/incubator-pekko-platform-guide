@@ -1,8 +1,8 @@
 package shopping.cart
 
-import akka.actor.typed.scaladsl.Behaviors
-import akka.actor.typed.ActorSystem
-import akka.management.scaladsl.AkkaManagement
+import org.apache.pekko.actor.typed.scaladsl.Behaviors
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.management.scaladsl.PekkoManagement
 import org.slf4j.LoggerFactory
 import scala.util.control.NonFatal
 
@@ -22,9 +22,9 @@ object Main {
   }
 
   def init(system: ActorSystem[_]): Unit = {
-    // tag::start-akka-management[]
-    AkkaManagement(system).start()
-    // end::start-akka-management[]
+    // tag::start-pekko-management[]
+    PekkoManagement(system).start()
+    // end::start-pekko-management[]
   }
 
 }

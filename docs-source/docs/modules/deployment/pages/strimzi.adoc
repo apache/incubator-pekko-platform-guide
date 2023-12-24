@@ -109,8 +109,8 @@ To enable the Kafka integration you define the name of the secret in `kafka` of 
 
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
 spec:

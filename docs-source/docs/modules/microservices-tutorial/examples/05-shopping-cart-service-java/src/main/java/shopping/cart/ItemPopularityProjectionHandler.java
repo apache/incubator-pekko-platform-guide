@@ -1,8 +1,8 @@
 // tag::handler[]
 package shopping.cart;
 
-import akka.projection.eventsourced.EventEnvelope;
-import akka.projection.jdbc.javadsl.JdbcHandler;
+import org.apache.pekko.projection.eventsourced.EventEnvelope;
+import org.apache.pekko.projection.jdbc.javadsl.JdbcHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import shopping.cart.repository.HibernateJdbcSession;

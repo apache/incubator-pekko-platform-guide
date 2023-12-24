@@ -233,7 +233,7 @@ include::deployment:partial$git-init.adoc[]
 
 === Update the deployment descriptor
 
-In `kubernetes/shopping-cart-service-cr.yml` you will find the deployment descriptor of the `AkkaMicroservice` that the Akka Operator will use when deploying the application in Kubernetes.
+In `kubernetes/shopping-cart-service-cr.yml` you will find the deployment descriptor of the `PekkoMicroservice` that the Akka Operator will use when deploying the application in Kubernetes.
 
 .kubernetes/shopping-cart-service-cr.yml:
 [source,yaml]

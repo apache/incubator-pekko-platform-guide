@@ -1,12 +1,12 @@
 package shopping.cart
 
-import akka.actor.typed.ActorSystem
-import akka.cluster.sharding.typed.ShardedDaemonProcessSettings
-import akka.cluster.sharding.typed.scaladsl.ShardedDaemonProcess
-import akka.persistence.query.Offset
-import akka.projection.ProjectionBehavior
-import akka.projection.eventsourced.EventEnvelope
-import akka.projection.scaladsl.AtLeastOnceProjection
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.cluster.sharding.typed.ShardedDaemonProcessSettings
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ShardedDaemonProcess
+import org.apache.pekko.persistence.query.Offset
+import org.apache.pekko.projection.ProjectionBehavior
+import org.apache.pekko.projection.eventsourced.EventEnvelope
+import org.apache.pekko.projection.scaladsl.AtLeastOnceProjection
 
 object ItemPopularityProjection {
   // tag::read-side-with-role[]

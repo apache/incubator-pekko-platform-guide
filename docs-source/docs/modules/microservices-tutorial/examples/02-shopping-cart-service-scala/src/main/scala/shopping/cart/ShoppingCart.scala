@@ -4,28 +4,28 @@ package shopping.cart
 // end::obj[]
 
 // tag::commands[]
-import akka.actor.typed.ActorRef
-import akka.pattern.StatusReply
+import org.apache.pekko.actor.typed.ActorRef
+import org.apache.pekko.pattern.StatusReply
 
 // end::commands[]
 
 // tag::init[]
 import scala.concurrent.duration._
-import akka.actor.typed.ActorSystem
-import akka.actor.typed.Behavior
-import akka.actor.typed.SupervisorStrategy
-import akka.cluster.sharding.typed.scaladsl.ClusterSharding
-import akka.cluster.sharding.typed.scaladsl.Entity
-import akka.cluster.sharding.typed.scaladsl.EntityTypeKey
-import akka.persistence.typed.PersistenceId
-import akka.persistence.typed.scaladsl.EventSourcedBehavior
-import akka.persistence.typed.scaladsl.RetentionCriteria
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.actor.typed.Behavior
+import org.apache.pekko.actor.typed.SupervisorStrategy
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ClusterSharding
+import org.apache.pekko.cluster.sharding.typed.scaladsl.Entity
+import org.apache.pekko.cluster.sharding.typed.scaladsl.EntityTypeKey
+import org.apache.pekko.persistence.typed.PersistenceId
+import org.apache.pekko.persistence.typed.scaladsl.EventSourcedBehavior
+import org.apache.pekko.persistence.typed.scaladsl.RetentionCriteria
 
 // end::init[]
 
 // tag::commandHandler[]
-import akka.persistence.typed.scaladsl.Effect
-import akka.persistence.typed.scaladsl.ReplyEffect
+import org.apache.pekko.persistence.typed.scaladsl.Effect
+import org.apache.pekko.persistence.typed.scaladsl.ReplyEffect
 
 // end::commandHandler[]
 

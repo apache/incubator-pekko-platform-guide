@@ -1,9 +1,9 @@
 // tag::handler[]
 package shopping.cart
 
-import akka.actor.typed.ActorSystem
-import akka.projection.eventsourced.EventEnvelope
-import akka.projection.jdbc.scaladsl.JdbcHandler
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.projection.eventsourced.EventEnvelope
+import org.apache.pekko.projection.jdbc.scaladsl.JdbcHandler
 import org.slf4j.LoggerFactory
 import shopping.cart.repository.{ ItemPopularityRepository, ScalikeJdbcSession }
 

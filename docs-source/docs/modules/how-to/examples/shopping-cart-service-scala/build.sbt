@@ -1,10 +1,10 @@
 name := "shopping-cart-service-scala"
 
-organization := "com.lightbend.akka.samples"
-organizationHomepage := Some(url("https://akka.io"))
+organization := "org.apache.pekko.samples"
+organizationHomepage := Some(url("https://pekko.apache.org"))
 licenses := Seq(("CC0", url("https://creativecommons.org/publicdomain/zero/1.0")))
 
-scalaVersion := "2.13.5"
+scalaVersion := "2.13.12"
 
 Compile / scalacOptions ++= Seq(
   "-target:11",
@@ -22,16 +22,16 @@ Test / logBuffered := false
 run / fork := false
 Global / cancelable := false // ctrl-c
 
-val AkkaVersion = "2.6.20"
+val PekkoVersion = "1.0.2"
 // tag::dependencies-for-healthchecks[]
-val AkkaHttpVersion = "10.2.10"
-val AkkaManagementVersion = "1.1.4"
+val PekkoHttpVersion = "1.0.0"
+val PekkoManagementVersion = "1.0.0"
 // end::dependencies-for-healthchecks[]
-val AkkaPersistenceCassandraVersion = "1.0.6"
-val AlpakkaKafkaVersion = "3.0.1"
-val AkkaProjectionVersion = "1.2.5"
+val PekkoPersistenceCassandraVersion = "1.0.0"
+val PekkoConnectorsKafkaVersion = "1.0.0"
+val PekkoProjectionVersion = "1.0.0"
 
-enablePlugins(AkkaGrpcPlugin)
+enablePlugins(PekkoGrpcPlugin)
 
 enablePlugins(JavaAppPackaging, DockerPlugin)
 dockerBaseImage := "docker.io/library/adoptopenjdk:11-jre-hotspot"
@@ -43,44 +43,42 @@ ThisBuild / dynverSeparator := "-"
 libraryDependencies ++= Seq(
 // end::dependencies-for-healthchecks[]
   // 1. Basic dependencies for a clustered application
-  "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-cluster-typed" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-cluster-sharding-typed" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test,
-  "com.typesafe.akka" %% "akka-stream-testkit" % AkkaVersion % Test,
-  // Akka Management powers Health Checks and Akka Cluster Bootstrapping
+  "org.apache.pekko" %% "pekko-stream" % PekkoVersion,
+  "org.apache.pekko" %% "pekko-cluster-typed" % PekkoVersion,
+  "org.apache.pekko" %% "pekko-cluster-sharding-typed" % PekkoVersion,
+  "org.apache.pekko" %% "pekko-actor-testkit-typed" % PekkoVersion % Test,
+  "org.apache.pekko" %% "pekko-stream-testkit" % PekkoVersion % Test,
+  // Pekko Management powers Health Checks and Pekko Cluster Bootstrapping
   // tag::dependencies-for-healthchecks[]
-  "com.lightbend.akka.management" %% "akka-management" % AkkaManagementVersion,
+  "org.apache.pekko" %% "pekko-management" % PekkoManagementVersion,
   // end::dependencies-for-healthchecks[]
-  "com.typesafe.akka" %% "akka-http" % AkkaHttpVersion,
+  "org.apache.pekko" %% "pekko-http" % PekkoHttpVersion,
   // tag::dependencies-for-healthchecks[]
-  "com.typesafe.akka" %% "akka-http-spray-json" % AkkaHttpVersion,
-  "com.lightbend.akka.management" %% "akka-management-cluster-http" % AkkaManagementVersion,
+  "org.apache.pekko" %% "pekko-http-spray-json" % PekkoHttpVersion,
+  "org.apache.pekko" %% "pekko-management-cluster-http" % PekkoManagementVersion,
   // end::dependencies-for-healthchecks[]
-  "com.lightbend.akka.management" %% "akka-management-cluster-bootstrap" % AkkaManagementVersion,
-  "com.lightbend.akka.discovery" %% "akka-discovery-kubernetes-api" % AkkaManagementVersion,
-  "com.typesafe.akka" %% "akka-discovery" % AkkaVersion,
+  "org.apache.pekko" %% "pekko-management-cluster-bootstrap" % PekkoManagementVersion,
+  "org.apache.pekko" %% "pekko-discovery-kubernetes-api" % PekkoManagementVersion,
+  "org.apache.pekko" %% "pekko-discovery" % PekkoVersion,
   // Common dependencies for logging and testing
-  "com.typesafe.akka" %% "akka-slf4j" % AkkaVersion,
-  "ch.qos.logback" % "logback-classic" % "1.2.9",
-  "org.scalatest" %% "scalatest" % "3.1.2" % Test,
-  // 2. Using gRPC and/or protobuf
-  "com.typesafe.akka" %% "akka-http2-support" % AkkaHttpVersion,
-  // 3. Using Akka Persistence
-  "com.typesafe.akka" %% "akka-persistence-typed" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-serialization-jackson" % AkkaVersion,
-  "com.typesafe.akka" %% "akka-persistence-cassandra" % AkkaPersistenceCassandraVersion,
-  "com.typesafe.akka" %% "akka-persistence-testkit" % AkkaVersion % Test,
-  // 4. Querying or projecting data from Akka Persistence
-  "com.typesafe.akka" %% "akka-persistence-query" % AkkaVersion,
-  "com.lightbend.akka" %% "akka-projection-eventsourced" % AkkaProjectionVersion,
-  "com.lightbend.akka" %% "akka-projection-cassandra" % AkkaProjectionVersion,
-  "com.typesafe.akka" %% "akka-stream-kafka" % AlpakkaKafkaVersion,
-  "com.lightbend.akka" %% "akka-projection-testkit" % AkkaProjectionVersion % Test,
+  "org.apache.pekko" %% "pekko-slf4j" % PekkoVersion,
+  "ch.qos.logback" % "logback-classic" % "1.2.13",
+  "org.scalatest" %% "scalatest" % "3.2.17" % Test,
+  // 3. Using Pekko Persistence
+  "org.apache.pekko" %% "pekko-persistence-typed" % PekkoVersion,
+  "org.apache.pekko" %% "pekko-serialization-jackson" % PekkoVersion,
+  "org.apache.pekko" %% "pekko-persistence-cassandra" % PekkoPersistenceCassandraVersion,
+  "org.apache.pekko" %% "pekko-persistence-testkit" % PekkoVersion % Test,
+  // 4. Querying or projecting data from Pekko Persistence
+  "org.apache.pekko" %% "pekko-persistence-query" % PekkoVersion,
+  "org.apache.pekko" %% "pekko-projection-eventsourced" % PekkoProjectionVersion,
+  "org.apache.pekko" %% "pekko-projection-cassandra" % PekkoProjectionVersion,
+  "org.apache.pekko" %% "pekko-connectors-kafka" % PekkoConnectorsKafkaVersion,
+  "org.apache.pekko" %% "pekko-projection-testkit" % PekkoProjectionVersion % Test,
   // 5. Kubernetes Lease (used by SBR)
-  // tag::akka-sbr-kubernetes-lease[]
-  "com.lightbend.akka.management" %% "akka-lease-kubernetes" % AkkaManagementVersion
-  // end::akka-sbr-kubernetes-lease[]
+  // tag::pekko-sbr-kubernetes-lease[]
+  "org.apache.pekko" %% "pekko-lease-kubernetes" % PekkoManagementVersion
+  // end::pekko-sbr-kubernetes-lease[]
 
 // tag::dependencies-for-healthchecks[]
 )

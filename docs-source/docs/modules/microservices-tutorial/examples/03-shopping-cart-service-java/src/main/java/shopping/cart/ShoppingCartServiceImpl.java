@@ -1,15 +1,15 @@
 package shopping.cart;
 
-import akka.actor.typed.ActorSystem;
-import akka.cluster.sharding.typed.javadsl.ClusterSharding;
-import akka.cluster.sharding.typed.javadsl.EntityRef;
-import akka.grpc.GrpcServiceException;
 import io.grpc.Status;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.cluster.sharding.typed.javadsl.ClusterSharding;
+import org.apache.pekko.cluster.sharding.typed.javadsl.EntityRef;
+import org.apache.pekko.grpc.GrpcServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import shopping.cart.proto.*;

@@ -4,10 +4,10 @@ package shopping.cart
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 
-import akka.Done
-import akka.actor.typed.ActorSystem
-import akka.projection.eventsourced.EventEnvelope
-import akka.projection.scaladsl.Handler
+import org.apache.pekko.Done
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.projection.eventsourced.EventEnvelope
+import org.apache.pekko.projection.scaladsl.Handler
 import org.slf4j.LoggerFactory
 
 class ItemPopularityProjectionHandler(

@@ -23,7 +23,7 @@ Follow the instructions in https://cloud.google.com/container-registry/docs/usin
 
 == Update the deployment descriptor
 
-Update the deployment descriptor in `kubernetes/shopping-cart-service-cr.yml` of the `AkkaMicroservice` that the Akka Operator will use when deploying the application in Kubernetes.
+Update the deployment descriptor in `kubernetes/shopping-cart-service-cr.yml` of the `PekkoMicroservice` that the Akka Operator will use when deploying the application in Kubernetes.
 
 .kubernetes/shopping-cart-service-cr.yml:
 [source,yaml]

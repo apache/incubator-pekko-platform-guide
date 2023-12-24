@@ -1,6 +1,6 @@
 package shopping.cart.repository
 
-import akka.actor.typed.ActorSystem
+import org.apache.pekko.actor.typed.ActorSystem
 import com.typesafe.config.Config
 import com.zaxxer.hikari.HikariDataSource
 import scalikejdbc.ConnectionPool

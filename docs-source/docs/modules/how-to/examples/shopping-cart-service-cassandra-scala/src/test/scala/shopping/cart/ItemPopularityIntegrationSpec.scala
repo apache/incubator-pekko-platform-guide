@@ -4,13 +4,13 @@ import scala.concurrent.Await
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-import akka.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
-import akka.cluster.MemberStatus
-import akka.cluster.sharding.typed.scaladsl.ClusterSharding
-import akka.cluster.typed.Cluster
-import akka.cluster.typed.Join
-import akka.persistence.testkit.scaladsl.PersistenceInit
-import akka.stream.alpakka.cassandra.scaladsl.CassandraSessionRegistry
+import org.apache.pekko.actor.testkit.typed.scaladsl.ScalaTestWithActorTestKit
+import org.apache.pekko.cluster.MemberStatus
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ClusterSharding
+import org.apache.pekko.cluster.typed.Cluster
+import org.apache.pekko.cluster.typed.Join
+import org.apache.pekko.persistence.testkit.scaladsl.PersistenceInit
+import org.apache.pekko.stream.connectors.cassandra.scaladsl.CassandraSessionRegistry
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import org.scalatest.wordspec.AnyWordSpecLike
@@ -22,12 +22,12 @@ object ItemPopularityIntegrationSpec {
 
   val config: Config = ConfigFactory
     .parseString(s"""
-      akka.remote.artery.canonical {
+      pekko.remote.artery.canonical {
         hostname = "127.0.0.1"
         port = 0
       }
 
-      akka.persistence.cassandra {
+      pekko.persistence.cassandra {
         events-by-tag {
           eventual-consistency-delay = 200ms
         }
@@ -48,7 +48,7 @@ object ItemPopularityIntegrationSpec {
         basic.load-balancing-policy.local-datacenter = "datacenter1"
       }
 
-      akka.projection.cassandra.offset-store.keyspace = $keyspace
+      pekko.projection.cassandra.offset-store.keyspace = $keyspace
     """)
     .withFallback(ConfigFactory.load())
 
@@ -60,11 +60,11 @@ class ItemPopularityIntegrationSpec
 
   private lazy val itemPopularityRepository = {
     val session =
-      CassandraSessionRegistry(system).sessionFor("akka.persistence.cassandra")
+      CassandraSessionRegistry(system).sessionFor("pekko.persistence.cassandra")
     // use same keyspace for the item_popularity table as the offset store
     val itemPopularityKeyspace =
       system.settings.config
-        .getString("akka.projection.cassandra.offset-store.keyspace")
+        .getString("pekko.projection.cassandra.offset-store.keyspace")
     new ItemPopularityRepositoryImpl(session, itemPopularityKeyspace)(
       system.executionContext)
   }

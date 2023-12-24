@@ -17,8 +17,6 @@
 :lightbend-developer-docs: https://pekko.apache.org/
 :lightbend-com-account: https://www.lightbend.com/account
 
-:cinnamon-docs: https://developer.lightbend.com/docs/telemetry/current
-
 //constant to add icon for opening link in a new page
 :tab-icon: image:ROOT:new-tab.svg[width=12]
 

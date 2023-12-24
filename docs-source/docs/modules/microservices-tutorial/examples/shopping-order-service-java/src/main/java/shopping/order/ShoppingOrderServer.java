@@ -1,17 +1,17 @@
 package shopping.order;
 
-import akka.actor.typed.ActorSystem;
-import akka.grpc.javadsl.ServerReflection;
-import akka.grpc.javadsl.ServiceHandler;
-import akka.http.javadsl.Http;
-import akka.http.javadsl.ServerBinding;
-import akka.http.javadsl.model.HttpRequest;
-import akka.http.javadsl.model.HttpResponse;
-import akka.japi.function.Function;
 import java.net.InetSocketAddress;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.concurrent.CompletionStage;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.grpc.javadsl.ServerReflection;
+import org.apache.pekko.grpc.javadsl.ServiceHandler;
+import org.apache.pekko.http.javadsl.Http;
+import org.apache.pekko.http.javadsl.ServerBinding;
+import org.apache.pekko.http.javadsl.model.HttpRequest;
+import org.apache.pekko.http.javadsl.model.HttpResponse;
+import org.apache.pekko.japi.function.Function;
 import shopping.order.proto.ShoppingOrderService;
 import shopping.order.proto.ShoppingOrderServiceHandlerFactory;
 

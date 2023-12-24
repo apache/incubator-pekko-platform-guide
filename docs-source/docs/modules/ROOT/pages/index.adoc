@@ -77,10 +77,6 @@ The tutorial shows how to build and run each service step by step:
 
 include::microservices-tutorial:partial$listing.adoc[]
 
-== Lightbend Telemetry
-
-{cinnamon-docs}/home.html[Lightbend Telemetry {tab-icon}, window="tab"] can capture data for applications using {cinnamon-docs}/instrumentations/instrumentations.html[Akka libraries and modules{tab-icon}, window="tab"], Play, and Lagom. For those interested in adding telemetry to their deployments we advise reviewing the xref:telemetry:index.adoc[Lightbend Telemetry] section of this guide.
-
 == How to...
 
 Some development tasks arise from requirements on existing projects. The xref:how-to:index.adoc[] section contains guidance on introducing new features or architectural improvements to an existing codebase.

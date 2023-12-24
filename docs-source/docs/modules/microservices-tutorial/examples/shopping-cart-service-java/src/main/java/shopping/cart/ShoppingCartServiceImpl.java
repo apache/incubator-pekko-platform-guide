@@ -1,10 +1,5 @@
 package shopping.cart;
 
-import akka.actor.typed.ActorSystem;
-import akka.actor.typed.DispatcherSelector;
-import akka.cluster.sharding.typed.javadsl.ClusterSharding;
-import akka.cluster.sharding.typed.javadsl.EntityRef;
-import akka.grpc.GrpcServiceException;
 import io.grpc.Status;
 import java.time.Duration;
 import java.util.List;
@@ -14,6 +9,11 @@ import java.util.concurrent.CompletionStage;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.actor.typed.DispatcherSelector;
+import org.apache.pekko.cluster.sharding.typed.javadsl.ClusterSharding;
+import org.apache.pekko.cluster.sharding.typed.javadsl.EntityRef;
+import org.apache.pekko.grpc.GrpcServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import shopping.cart.proto.*;
@@ -34,7 +34,7 @@ public final class ShoppingCartServiceImpl implements ShoppingCartService {
       ActorSystem<?> system, ItemPopularityRepository repository) { // <1>
 
     DispatcherSelector dispatcherSelector =
-        DispatcherSelector.fromConfig("akka.projection.jdbc.blocking-jdbc-dispatcher");
+        DispatcherSelector.fromConfig("pekko.projection.jdbc.blocking-jdbc-dispatcher");
     this.blockingJdbcExecutor = system.dispatchers().lookup(dispatcherSelector); // <2>
 
     this.repository = repository;

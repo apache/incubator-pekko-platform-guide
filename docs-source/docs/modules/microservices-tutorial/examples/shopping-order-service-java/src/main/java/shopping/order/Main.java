@@ -1,10 +1,10 @@
 package shopping.order;
 
-import akka.actor.typed.ActorSystem;
-import akka.actor.typed.javadsl.Behaviors;
-import akka.management.cluster.bootstrap.ClusterBootstrap;
-import akka.management.javadsl.AkkaManagement;
 import com.typesafe.config.Config;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.actor.typed.javadsl.Behaviors;
+import org.apache.pekko.management.cluster.bootstrap.ClusterBootstrap;
+import org.apache.pekko.management.javadsl.PekkoManagement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import shopping.order.proto.ShoppingOrderService;
@@ -24,7 +24,7 @@ public class Main {
   }
 
   public static void init(ActorSystem<Void> system) {
-    AkkaManagement.get(system).start();
+    PekkoManagement.get(system).start();
     ClusterBootstrap.get(system).start();
 
     Config config = system.settings().config();

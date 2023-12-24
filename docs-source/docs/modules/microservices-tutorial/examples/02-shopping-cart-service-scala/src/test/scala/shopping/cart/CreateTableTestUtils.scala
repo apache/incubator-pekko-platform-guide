@@ -7,10 +7,10 @@ import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-import akka.Done
-import akka.actor.typed.ActorSystem
-import akka.persistence.jdbc.testkit.scaladsl.SchemaUtils
-import akka.projection.jdbc.scaladsl.JdbcProjection
+import org.apache.pekko.Done
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.persistence.jdbc.testkit.scaladsl.SchemaUtils
+import org.apache.pekko.projection.jdbc.scaladsl.JdbcProjection
 import org.slf4j.LoggerFactory
 import shopping.cart.repository.ScalikeJdbcSession
 

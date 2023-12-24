@@ -3,7 +3,7 @@
 
 include::partial$include.adoc[]
 
-== Customize AkkaMicroservices deployments
+== Customize PekkoMicroservices deployments
 
 To apply customizations on top of a default deployment descriptor (CR) we recommend using https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/[Kustomize {tab-icon}, window="tab"], built into `kubectl`.
 
@@ -14,8 +14,8 @@ The default deployment descriptor (CR):
 .base/shopping-cart-service-cr.yml
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
 spec:
@@ -49,8 +49,8 @@ The actual customization:
 .custom/custom.yml
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
 spec:

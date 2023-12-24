@@ -27,17 +27,17 @@ Scala::
 include::example$shopping-cart-service-scala/build.sbt[tag=akka-sbr-kubernetes-lease]
 ----
 
-== Setup your Kubernetes Cluster and AkkaMicroservice
+== Setup your Kubernetes Cluster and PekkoMicroservice
 
 When xref:deployment:aws-install.adoc#_install_akka_operator[installing the Akka Operator] on your Kubernetes cluster using the Helm chart you will also install the Akka Kubernetes Lease CRD.
 
-Once the CRD is installed, you can configure your Akka Microservice to back the SBR implementation with a Kubernetes Lease enabling it on the AkkaMicroservice CR:
+Once the CRD is installed, you can configure your Akka Microservice to back the SBR implementation with a Kubernetes Lease enabling it on the PekkoMicroservice CR:
 
 .kubernetes/shopping-cart-service-cr.yml
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
 spec:

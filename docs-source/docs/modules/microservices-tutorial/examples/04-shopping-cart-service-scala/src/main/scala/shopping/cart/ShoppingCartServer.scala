@@ -6,12 +6,12 @@ import scala.concurrent.duration._
 import scala.util.Failure
 import scala.util.Success
 
-import akka.actor.typed.ActorSystem
-import akka.grpc.scaladsl.ServerReflection
-import akka.grpc.scaladsl.ServiceHandler
-import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.HttpRequest
-import akka.http.scaladsl.model.HttpResponse
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.grpc.scaladsl.ServerReflection
+import org.apache.pekko.grpc.scaladsl.ServiceHandler
+import org.apache.pekko.http.scaladsl.Http
+import org.apache.pekko.http.scaladsl.model.HttpRequest
+import org.apache.pekko.http.scaladsl.model.HttpResponse
 
 object ShoppingCartServer {
 

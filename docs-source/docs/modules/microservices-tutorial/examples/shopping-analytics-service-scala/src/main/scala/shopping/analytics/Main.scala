@@ -1,9 +1,9 @@
 package shopping.analytics
 
-import akka.actor.typed.scaladsl.Behaviors
-import akka.actor.typed.ActorSystem
-import akka.management.cluster.bootstrap.ClusterBootstrap
-import akka.management.scaladsl.AkkaManagement
+import org.apache.pekko.actor.typed.scaladsl.Behaviors
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.management.cluster.bootstrap.ClusterBootstrap
+import org.apache.pekko.management.scaladsl.PekkoManagement
 import org.slf4j.LoggerFactory
 import scala.util.control.NonFatal
 
@@ -24,7 +24,7 @@ object Main {
   }
 
   def init(system: ActorSystem[_]): Unit = {
-    AkkaManagement(system).start()
+    PekkoManagement(system).start()
     ClusterBootstrap(system).start()
 
     ShoppingCartEventConsumer.init(system)

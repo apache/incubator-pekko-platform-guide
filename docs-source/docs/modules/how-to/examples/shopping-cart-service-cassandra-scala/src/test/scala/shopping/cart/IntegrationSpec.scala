@@ -7,17 +7,17 @@ import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
-import akka.actor.CoordinatedShutdown
-import akka.actor.testkit.typed.scaladsl.ActorTestKit
-import akka.actor.typed.ActorSystem
-import akka.cluster.MemberStatus
-import akka.cluster.typed.Cluster
-import akka.grpc.GrpcClientSettings
-import akka.kafka.ConsumerSettings
-import akka.kafka.Subscriptions
-import akka.kafka.scaladsl.Consumer
-import akka.persistence.testkit.scaladsl.PersistenceInit
-import akka.testkit.SocketUtil
+import org.apache.pekko.actor.CoordinatedShutdown
+import org.apache.pekko.actor.testkit.typed.scaladsl.ActorTestKit
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.cluster.MemberStatus
+import org.apache.pekko.cluster.typed.Cluster
+import org.apache.pekko.grpc.GrpcClientSettings
+import org.apache.pekko.kafka.ConsumerSettings
+import org.apache.pekko.kafka.Subscriptions
+import org.apache.pekko.kafka.scaladsl.Consumer
+import org.apache.pekko.persistence.testkit.scaladsl.PersistenceInit
+import org.apache.pekko.testkit.SocketUtil
 import com.google.protobuf.any.{ Any => ScalaPBAny }
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
@@ -41,14 +41,14 @@ object IntegrationSpec {
 
   val config: Config = ConfigFactory
     .parseString(s"""
-      akka.cluster.jmx.multi-mbeans-in-same-jvm = on
+      pekko.cluster.jmx.multi-mbeans-in-same-jvm = on
       
-      akka.remote.artery.canonical {
+      pekko.remote.artery.canonical {
         hostname = "127.0.0.1"
         port = 0
       }
 
-      akka.persistence.cassandra {
+      pekko.persistence.cassandra {
         events-by-tag {
           eventual-consistency-delay = 200ms
         }
@@ -69,24 +69,24 @@ object IntegrationSpec {
         advanced.session-leak.threshold = 10
       }
       
-      akka.projection.cassandra.offset-store.keyspace = $keyspace
+      pekko.projection.cassandra.offset-store.keyspace = $keyspace
       
       shopping-cart-service.kafka.topic = "shopping-cart-events_$uniqueQualifier"
 
-      akka.kafka.consumer {
+      pekko.kafka.consumer {
         kafka-clients {
           auto.offset.reset = "earliest"
         }
       }
       
-      akka.actor.testkit.typed {
+      pekko.actor.testkit.typed {
         single-expect-default = 5s
         filter-leeway = 5s
         system-shutdown-default = 30s
       }
 
       # don't self-join until all 3 have been started and probed sucessfully
-      akka.management.cluster.bootstrap.contact-point-discovery {
+      pekko.management.cluster.bootstrap.contact-point-discovery {
         required-contact-point-nr = 3
         contact-with-all-contact-points = true
       }
@@ -104,8 +104,8 @@ object IntegrationSpec {
         interface = "localhost"
         port = $grpcPort
       }
-      akka.management.http.port = ${managementPorts(managementPortIndex)}
-      akka.discovery.config.services {
+      pekko.management.http.port = ${managementPorts(managementPortIndex)}
+      pekko.discovery.config.services {
         "shopping-cart-service" {
           endpoints = [
             {host = "127.0.0.1", port = ${managementPorts(0)}},

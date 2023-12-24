@@ -2,7 +2,7 @@ package shopping.cart
 
 import scala.concurrent.Future
 
-import akka.Done
+import org.apache.pekko.Done
 
 trait ItemPopularityRepository {
 

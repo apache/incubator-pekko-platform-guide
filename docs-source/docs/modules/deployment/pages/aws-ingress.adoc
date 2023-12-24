@@ -66,8 +66,8 @@ Add the `grpcIngress` section to the deployment descriptor and set its class to 
 .kubernetes/shopping-cart-service-cr.yml:
 [source,yaml]
 ----
-apiVersion: akka.lightbend.com/v1
-kind: AkkaMicroservice
+apiVersion: pekko.apache.org/v1
+kind: PekkoMicroservice
 metadata:
   name: shopping-cart-service
   namespace: "shopping"

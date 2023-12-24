@@ -3,10 +3,10 @@
 package shopping.cart
 
 import scala.concurrent.Future
-import akka.Done
+import org.apache.pekko.Done
 // end::trait[]
 import scala.concurrent.ExecutionContext
-import akka.stream.alpakka.cassandra.scaladsl.CassandraSession
+import org.apache.pekko.stream.connectors.cassandra.scaladsl.CassandraSession
 // end::impl[]
 
 // tag::trait[]

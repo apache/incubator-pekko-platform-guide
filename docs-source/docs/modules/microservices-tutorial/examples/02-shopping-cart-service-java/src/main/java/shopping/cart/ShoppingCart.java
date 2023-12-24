@@ -1,21 +1,21 @@
 // tag::imports[]
 package shopping.cart;
 
-import akka.actor.typed.ActorRef;
-import akka.actor.typed.ActorSystem;
-import akka.actor.typed.Behavior;
-import akka.actor.typed.SupervisorStrategy;
-import akka.actor.typed.javadsl.Behaviors;
-import akka.cluster.sharding.typed.javadsl.ClusterSharding;
-import akka.cluster.sharding.typed.javadsl.Entity;
-import akka.cluster.sharding.typed.javadsl.EntityTypeKey;
-import akka.pattern.StatusReply;
-import akka.persistence.typed.PersistenceId;
-import akka.persistence.typed.javadsl.*;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.pekko.actor.typed.ActorRef;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.actor.typed.Behavior;
+import org.apache.pekko.actor.typed.SupervisorStrategy;
+import org.apache.pekko.actor.typed.javadsl.Behaviors;
+import org.apache.pekko.cluster.sharding.typed.javadsl.ClusterSharding;
+import org.apache.pekko.cluster.sharding.typed.javadsl.Entity;
+import org.apache.pekko.cluster.sharding.typed.javadsl.EntityTypeKey;
+import org.apache.pekko.pattern.StatusReply;
+import org.apache.pekko.persistence.typed.PersistenceId;
+import org.apache.pekko.persistence.typed.javadsl.*;
 
 // end::imports[]
 

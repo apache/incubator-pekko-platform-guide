@@ -5,4 +5,4 @@
 * xref:sbr-kubernetes-lease.adoc[Improve SBR's decision process]
 * xref:enable-TLS.adoc[Enable TLS for gRPC]
 * xref:health-checks.adoc[Inspect the health]
-* xref:configure-deployments.adoc[Customize AkkaMicroservice deployment]
+* xref:configure-deployments.adoc[Customize PekkoMicroservice deployment]

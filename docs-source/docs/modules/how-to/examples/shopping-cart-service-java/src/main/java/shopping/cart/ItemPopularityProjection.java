@@ -1,13 +1,13 @@
 package shopping.cart;
 
-import akka.actor.typed.ActorSystem;
-import akka.cluster.sharding.typed.ShardedDaemonProcessSettings;
-import akka.cluster.sharding.typed.javadsl.ShardedDaemonProcess;
-import akka.persistence.query.Offset;
-import akka.projection.ProjectionBehavior;
-import akka.projection.eventsourced.EventEnvelope;
-import akka.projection.javadsl.ExactlyOnceProjection;
 import java.util.Optional;
+import org.apache.pekko.actor.typed.ActorSystem;
+import org.apache.pekko.cluster.sharding.typed.ShardedDaemonProcessSettings;
+import org.apache.pekko.cluster.sharding.typed.javadsl.ShardedDaemonProcess;
+import org.apache.pekko.persistence.query.Offset;
+import org.apache.pekko.projection.ProjectionBehavior;
+import org.apache.pekko.projection.eventsourced.EventEnvelope;
+import org.apache.pekko.projection.javadsl.ExactlyOnceProjection;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import shopping.cart.repository.ItemPopularityRepository;
 

@@ -4,10 +4,10 @@ import java.util.concurrent.TimeoutException
 
 import scala.concurrent.Future
 
-import akka.actor.typed.ActorSystem
-import akka.cluster.sharding.typed.scaladsl.ClusterSharding
-import akka.grpc.GrpcServiceException
-import akka.util.Timeout
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.cluster.sharding.typed.scaladsl.ClusterSharding
+import org.apache.pekko.grpc.GrpcServiceException
+import org.apache.pekko.util.Timeout
 import io.grpc.Status
 import org.slf4j.LoggerFactory
 

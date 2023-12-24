@@ -1,11 +1,11 @@
 // tag::handler[]
 package shopping.cart;
 
-import akka.Done;
-import akka.projection.eventsourced.EventEnvelope;
-import akka.projection.javadsl.Handler;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import org.apache.pekko.Done;
+import org.apache.pekko.projection.eventsourced.EventEnvelope;
+import org.apache.pekko.projection.javadsl.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

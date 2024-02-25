@@ -7,15 +7,15 @@ include::partial$include.adoc[]
 
 Many common practices and accepted programming models do not address important challenges inherent in designing systems for modern computer architectures. To be successful, distributed systems must cope in an environment where components crash without responding, messages get lost without a trace on the wire, and network latency fluctuates. These problems occur regularly in carefully managed intra-datacenter environments - even more so in virtualized architectures.
 
-To help you deal with these realities, Akka provides:
+To help you deal with these realities, Pekko provides:
 
 * Multi-threaded behavior without the use of low-level concurrency constructs like atomics or locks — relieving you from even thinking about memory visibility issues.
 * Transparent remote communication between systems and their components — relieving you from writing and maintaining difficult networking code.
 * A clustered, high-availability architecture that is elastic, scales in or out, on demand — enabling you to deliver a truly reactive system.
 
-== Akka
+== Pekko
 
-Akka’s use of the actor model provides a level of abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The actor model spans the full set of Akka libraries, providing you with a consistent way of understanding and using them. Thus, Akka offers a depth of integration that you cannot achieve by picking libraries to solve individual problems and trying to piece them together.
+Pekko’s use of the actor model provides a level of abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The actor model spans the full set of Pekko libraries, providing you with a consistent way of understanding and using them. Thus, Pekko offers a depth of integration that you cannot achieve by picking libraries to solve individual problems and trying to piece them together.
 
 Use of actors allows us to:
 
@@ -33,7 +33,7 @@ NOTE: Message-passing is a key property of a reactive system as presented in the
 Since we no longer have a shared call stack between actors that send messages to each other, we need to handle error situations differently. There are two kinds of errors we need to consider:
 
 * The first case is when the delegated task on the target actor failed due to an error in the task (typically some validation issue, like a non-existent user ID). In this case, the service encapsulated by the target actor is intact, it is only the task that itself is erroneous. The service actor should reply to the sender with a message, presenting the error case. There is nothing special here, errors are part of the domain and hence become ordinary messages.
-* The second case is when a service itself encounters an internal fault. Akka enforces that all actors are organized into a tree-like hierarchy, i.e. an actor that creates another actor becomes the parent of that new actor. This is very similar how operating systems organize processes into a tree. Just like with processes, when an actor fails, its parent actor can decide how to react to the failure. Also, if the parent actor is stopped, all of its children are recursively stopped, too. This service is called supervision and it is central to Akka.
+* The second case is when a service itself encounters an internal fault. Pekko enforces that all actors are organized into a tree-like hierarchy, i.e. an actor that creates another actor becomes the parent of that new actor. This is very similar how operating systems organize processes into a tree. Just like with processes, when an actor fails, its parent actor can decide how to react to the failure. Also, if the parent actor is stopped, all of its children are recursively stopped, too. This service is called supervision and it is central to Pekko.
 
 A supervisor strategy is typically defined by the parent actor when it is starting a child actor. It can decide to restart the child actor on certain types of failures or stop it completely on others. Children never go silently dead (with the notable exception of entering an infinite loop) instead they are either failing and the supervisor strategy can react to the fault, or they are stopped (in which case interested parties are notified). There is always a responsible entity for managing an actor: its parent. Restarts are not visible from the outside: collaborating actors can keep continuing sending messages while the target actor restarts.
 
@@ -43,4 +43,4 @@ NOTE: Embracing failure (using, for example, supervision) is one of the {reactiv
 
 * The {akka-blog}/news/2019/12/03/akka-typed-actor-intro-video[Akka Actor introduction video {tab-icon}, window="tab"] is a good starting point for learning Akka Actors.
 
-* Learn more about Akka and the Actor Model on the {akka}/typed/guide/actors-intro.html[Akka documentation {tab-icon}, window="tab"], window="tab"].
+* Learn more about Pekko and the Actor Model on the {pekko}/typed/guide/actors-intro.html[Pekko documentation {tab-icon}, window="tab"], window="tab"].

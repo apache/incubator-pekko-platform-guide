@@ -10,16 +10,16 @@ To communicate with the API consistently, we recommend using schema-first approa
 
 This guide illustrates building service APIs for synchronous communication for use cases which require an instant reply. Most often synchronous communication issues a single request and expects a single reply. Other cases open communication channels for continued communication with possibly ongoing replies.
 
-NOTE: When using Akka APIs, such as Akka gRPC or Akka HTTP, synchronous communication is still not blocking the caller's thread. The call returns a handle to a future reply (a Java `CompletionStage`, Scala `Future`, or Akka Stream).
+NOTE: When using Pekko APIs, such as Pekko gRPC or Pekko HTTP, synchronous communication is still not blocking the caller's thread. The call returns a handle to a future reply (a Java `CompletionStage`, Scala `Future`, or Pekko Stream).
 
 === gRPC
 
 gRPC services use Protobuf as their language-agnostic schema and which translate to efficient serialization.
 Protobuf can also be used as a serialization format for messages on Kafka topics. So that both producer and consumer agree on the format.
 
-Akka gRPC adds plug-ins to the build system of the application to generate Java or Scala classes corresponding to the Protobuf schema.
+Pekko gRPC adds plug-ins to the build system of the application to generate Java or Scala classes corresponding to the Protobuf schema.
 
-xref:akka-grpc.adoc[Akka gRPC] explains how to use gRPC for service APIs.
+xref:pekko-grpc.adoc[Pekko gRPC] explains how to use gRPC for service APIs.
 
 NOTE: The xref:microservices-tutorial:grpc-service.adoc[] and xref:microservices-tutorial:projection-grpc-client.adoc[] in the tutorial illustrates how to implement a gRPC server and client.
 
@@ -27,7 +27,7 @@ NOTE: The xref:microservices-tutorial:grpc-service.adoc[] and xref:microservices
 
 The ubiquitous communication protocol is HTTP with text-based messages in JSON. Even though JSON lacks a commonly used schema description, its simplicity, human-readability and support in JavaScript has made the de-facto standard for synchronous communication over system boundaries.
 
-NOTE: This guide doesn't cover how REST services can be implemented with Akka HTTP.
+NOTE: This guide doesn't cover how REST services can be implemented with Pekko HTTP.
 
 == Asynchronous Services
 

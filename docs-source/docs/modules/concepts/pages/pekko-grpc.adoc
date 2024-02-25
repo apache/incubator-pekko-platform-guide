@@ -1,0 +1,29 @@
+= Pekko gRPC
+
+include::partial$include.adoc[]
+
+https://grpc.io[gRPC {tab-icon}, window="tab"] is a transport mechanism for request/response and streaming use cases. It can run in almost any environment with bindings to many programming languages. It takes a schema-first approach, where your protocol is declared in a {pekko-grpc}/proto.html[Protobuf service descriptor {tab-icon}, window="tab"]. From the service descriptor the source code for the messages, client and server stubs are generated.
+
+It has several advantages:
+
+* Schema-first design favors well-defined and decoupled service interfaces over brittle ad-hoc solutions.
+* The Protobuf-based wire protocol is efficient, well-known, and allows compatible schema evolution.
+* It is based on HTTP/2 which allows multiplexing several data streams over a single connection.
+* Streaming requests and responses are first class.
+* There are tools available for many languages allowing seamless interoperability between clients and services written in different languages.
+
+That makes it well-suited for:
+
+* Connections between internal services
+* Connecting to external services that expose a gRPC API (even ones written in other languages)
+* Serving data to web or mobile front-ends
+
+{pekko-grpc}/[Pekko gRPC {tab-icon}, window="tab"] is a gRPC library for the Pekko ecosystem. It has support for Maven, gradle and sbt. The gRPC servers and clients use xref:pekko-stream.adoc[], Scala `Future` and Java `CompletionStage` in the user facing API.
+
+== Learn more
+
+* The {akka-blog}/news/2020/04/08/akka-grpc-intro-video[Introduction to Akka gRPC video {tab-icon}, window="tab"] is a good starting point for learning Pekko gRPC.
+* {pekko-grpc}/whygrpc.html[Pekko gRPC "Why gRPC?" {tab-icon}, window="tab"]
+* {pekko-grpc}/server/walkthrough.html[Pekko gRPC server walk-through {tab-icon}, window="tab"]
+* {pekko-grpc}/client/walkthrough.html[Pekko gRPC client walk-through {tab-icon}, window="tab"]
+
